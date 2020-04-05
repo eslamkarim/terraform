@@ -11,7 +11,7 @@ resource "aws_security_group" "http" {
 }
 
 resource "aws_security_group" "private-ssh" {
-  name        = "http"
+  name        = "private-ssh"
   vpc_id      = "${aws_vpc.main.id}"
 
   ingress {
@@ -23,7 +23,7 @@ resource "aws_security_group" "private-ssh" {
 }
 
 resource "aws_security_group" "ssh" {
-  name        = "http"
+  name        = "ssh"
   vpc_id      = "${aws_vpc.main.id}"
 
   ingress {
