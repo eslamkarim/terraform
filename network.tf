@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "eu-west-2"
-  access_key = "s"
-  secret_key = ""
+  # access_key = "${AWS_ACCESS_KEY}"
+  # secret_key = "${AWS_SECRET_KEY}"
 }
 
 resource "aws_vpc" "main" {

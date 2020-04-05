@@ -1,4 +1,4 @@
-resource "tls_private_key" "example" {
+resource "tls_private_key" "terraform" {
   algorithm   = "RSA"
   rsa_bits = "4096"
 }
@@ -9,10 +9,10 @@ resource "aws_key_pair" "generated_key" {
 }
 
 resource "aws_secretsmanager_secret" "private-key-secret" {
-  name = "example"
+  name = "terraform"
 }
 
-resource "aws_secretsmanager_secret_version" "example" {
+resource "aws_secretsmanager_secret_version" "terraform" {
   secret_id     = "${aws_secretsmanager_secret.private-key-secret.id}"
   secret_string = "${tls_private_key.example.private_key_pem}"
 }

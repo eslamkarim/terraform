@@ -10,6 +10,18 @@ resource "aws_security_group" "http" {
   }
 }
 
+resource "aws_security_group" "private-ssh" {
+  name        = "http"
+  vpc_id      = "${aws_vpc.main.id}"
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["192.168.0.0/16"]
+  }
+}
+
 resource "aws_security_group" "ssh" {
   name        = "http"
   vpc_id      = "${aws_vpc.main.id}"
